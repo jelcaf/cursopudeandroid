@@ -39,8 +39,6 @@ public class DbListViewActivity extends Activity {
     /**
      * Método privado donde conectaremos la lista con la base de datos.
      */
-    private static String[] FROM = {DbCryptoAlgorithm.__CRYPTOALGORITHMDB_LLAVE_NOMBRE__, };
-    private static int[] TO = {R.id.rowTitle, };
     private void initConfig() {
     	setContentView(R.layout.main);
     	miListView = (ListView) findViewById(R.id.myList);
