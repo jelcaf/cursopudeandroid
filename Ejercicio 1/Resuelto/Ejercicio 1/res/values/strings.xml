@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Cálculo del módulo de A entre B:</string>
+    <string name="app_name">Conexión Interfaz con Java</string>
+<string name="tituloA">A:</string>
+<string name="tituloB">B:</string>
+<string name="ayudaA">Introduzca aquí el argumento A</string>
+<string name="ayudaB">Introduzca aquí el argumento B</string>
+</resources>
