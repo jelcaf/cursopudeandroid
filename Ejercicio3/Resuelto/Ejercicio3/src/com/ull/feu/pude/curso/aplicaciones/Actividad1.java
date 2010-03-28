@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class Actividad1 extends Activity {
+	private static final int SUB_ACTIVIDAD = 0;
+	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -21,10 +23,21 @@ public class Actividad1 extends Activity {
             	String texto = ed.getText().toString();
             	Intent i = new Intent (getApplicationContext(), Actividad2.class);
             	i.putExtra("clave", texto);
-                startActivity(i);
+            	startActivityForResult(i, SUB_ACTIVIDAD);
+                //startActivity(i);
             }
         });
-        
-
     }
+    
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == SUB_ACTIVIDAD) {
+                if (resultCode == RESULT_OK) {
+                        boolean suma = data.getBooleanExtra("CLOSE", false);
+                        if (suma)
+                                finish();
+                }
+        }
+    }
+
 }
