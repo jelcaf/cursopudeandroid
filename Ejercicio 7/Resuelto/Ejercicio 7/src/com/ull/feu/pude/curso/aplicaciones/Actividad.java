@@ -107,6 +107,7 @@ public class Actividad extends ListActivity {
     			Toast.makeText(this, "Eliminado elemento: "+mArray.get(info.position), Toast.LENGTH_SHORT).show();
     			mArray.remove(info.position);
     			actualizarArray();
+    			return true;
     	}
 		return super.onContextItemSelected(item);
     }
