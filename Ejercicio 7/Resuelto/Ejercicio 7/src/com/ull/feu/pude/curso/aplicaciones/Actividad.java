@@ -10,12 +10,18 @@ import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Toast;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 
 public class Actividad extends ListActivity {
+	
+	private static final int MENU_ADD = Menu.FIRST;
+	private static final int MENU_DEL = Menu.FIRST + 1;
 	
 	private static final int DIALOGO_NUEVO_DATO = 1;
 	
@@ -79,5 +85,26 @@ public class Actividad extends ListActivity {
                 android.R.layout.simple_list_item_1, mArray));
     }
     
-
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View view, ContextMenuInfo menuInfo) {
+    	menu.add (Menu.NONE, MENU_ADD, Menu.NONE, "Añadir elemento");
+    	menu.add (Menu.NONE, MENU_DEL, Menu.NONE, "Eliminar elemento seleccionado");
+    }
+    
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+    	AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
+    
+    	switch (item.getItemId()) {
+    		case MENU_ADD:
+    			Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
+    			showDialog(DIALOGO_NUEVO_DATO);
+    			return true;
+    		case MENU_DEL:
+    			Toast.makeText(this, "Eliminado elemento: "+mArray.get(info.position), Toast.LENGTH_SHORT).show();
+    			mArray.remove(info.position);
+    			actualizarArray();
+    	}
+		return super.onContextItemSelected(item);
+    }
 }
