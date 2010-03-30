@@ -25,6 +25,8 @@ public class Actividad extends ListActivity {
 	
 	private static final int DIALOGO_NUEVO_DATO = 1;
 	
+	private int posicionDondeInsertar = -1;
+	
     ArrayList<String> mArray = new ArrayList<String>(); 
 	
     /** Called when the activity is first created. */
@@ -66,7 +68,7 @@ public class Actividad extends ListActivity {
                         public void onClick(DialogInterface dialog, int whichButton) {
                             /* Insertamos el nuevo elemento por el final */
                                 EditText editText = (EditText) textEntryView.findViewById (R.id.dato_edit);
-                                mArray.add (editText.getText().toString());
+                                mArray.add (posicionDondeInsertar, editText.getText().toString());
                                 actualizarArray();
                         }
                     })
@@ -87,7 +89,7 @@ public class Actividad extends ListActivity {
     
     @Override
     public void onCreateContextMenu(ContextMenu menu, View view, ContextMenuInfo menuInfo) {
-    	menu.add (Menu.NONE, MENU_ADD, Menu.NONE, "Añadir elemento");
+    	menu.add (Menu.NONE, MENU_ADD, Menu.NONE, "Añadir elemento a continuación");
     	menu.add (Menu.NONE, MENU_DEL, Menu.NONE, "Eliminar elemento seleccionado");
     }
     
@@ -98,6 +100,7 @@ public class Actividad extends ListActivity {
     	switch (item.getItemId()) {
     		case MENU_ADD:
     			Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
+    			posicionDondeInsertar = info.position+1;
     			showDialog(DIALOGO_NUEVO_DATO);
     			return true;
     		case MENU_DEL:
