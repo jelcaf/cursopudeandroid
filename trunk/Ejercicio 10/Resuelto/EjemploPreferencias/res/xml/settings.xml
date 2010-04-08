@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<PreferenceCategory android:summary="Ajustes básicos del programa" android:title="Ajustes Básicos" android:key="basics_preferences">
+	<EditTextPreference android:key="text_preference" android:summary="Una preferencia que permite introducir texto" android:title="Preferencia de Texto"></EditTextPreference>
+</PreferenceCategory>
+
+</PreferenceScreen>
