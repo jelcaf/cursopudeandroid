@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, ViewsAndLayouts!</string>
+    <string name="app_name">Vistas y Layouts</string>
+    <string name="enableViews">Activar Layout</string>
+    <string name="myRadioButton">Botón circular</string>
+	<string name="invisible">Invisible</string>
+	<string name="gone">Gone</string>
+</resources>
