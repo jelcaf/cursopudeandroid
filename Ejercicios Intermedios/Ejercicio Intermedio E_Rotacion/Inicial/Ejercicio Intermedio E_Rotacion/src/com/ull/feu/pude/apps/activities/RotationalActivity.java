@@ -26,10 +26,10 @@ public class RotationalActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(LOG_TAG, "onCreate()");
-        initConfig();
+        initConfig(savedInstanceState);
     }
     
-    private void initConfig() {
+    private void initConfig(Bundle savedInstaneState) {
     	setContentView(R.layout.main);
     	Log.i(LOG_TAG, "initConfig()");
     	source = (Spinner) findViewById(R.id.sourceLanguage);
