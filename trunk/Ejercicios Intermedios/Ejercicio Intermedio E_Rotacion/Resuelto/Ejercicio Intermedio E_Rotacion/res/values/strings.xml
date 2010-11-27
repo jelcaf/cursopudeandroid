@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, RotationalActivity!</string>
+    <string name="app_name">Rotate Me</string>
+    <string name="source">Seleccione lenguaje de entrada:</string>
+    <string name="destination">Seleccione lenguaje de salida:</string>
+</resources>
