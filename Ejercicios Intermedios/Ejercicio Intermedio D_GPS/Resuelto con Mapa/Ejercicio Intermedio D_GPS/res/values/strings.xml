@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, Location!</string>
+    <string name="app_name">GPS</string>
+    <string name="toggle_gps_on">Toggle GPS_On</string>
+    <string name="toggle_gps_off">Toggle GPS Off</string>
+</resources>
