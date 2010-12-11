@@ -26,4 +26,5 @@
     	android:textOn="@string/toggle_gps_off"
     	android:textOff="@string/toggle_gps_on">
     </ToggleButton>
+<Button android:text="@+id/Button01" android:id="@+id/Button01" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
 </LinearLayout>
