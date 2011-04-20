@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, RequestActivity!</string>
+    <string name="app_name">Web Services y Ejecución en Segundo plano</string>
+    <string name="latitude">Latitud: </string>
+    <string name="defaultLatitude">28.482566</string>
+    <string name="defaultLongitude">-16.323004</string>
+    <string name="longitude">Longitud: </string>
+    <string name="result">Resultado: </string>
+    <string name="getAddress">Obtener Dirección</string>
+    <string name="inProgress">Operación en curso...</string>
+</resources>
