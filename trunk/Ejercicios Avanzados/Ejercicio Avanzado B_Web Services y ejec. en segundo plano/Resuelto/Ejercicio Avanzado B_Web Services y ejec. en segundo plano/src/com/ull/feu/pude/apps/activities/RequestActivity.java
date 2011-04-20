@@ -1,12 +1,5 @@
 package com.ull.feu.pude.apps.activities;
 
-import java.net.URI;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,7 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.ull.feu.pude.apps.threads.RequestThread;
+
 public class RequestActivity extends Activity {
+	
+	public static final String __RESPONSE_KEY__ = "responseKey";
 	
 	private EditText latitudeET;
 	private EditText longitudeET;
@@ -55,44 +52,26 @@ public class RequestActivity extends Activity {
     	
     	
     	// realizar la petici—n web
-    	try {
-    		
-    		// obtenemos una conexi—n
-    		DefaultHttpClient httpClient = new DefaultHttpClient();
-	    	String url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitudeET.getText().toString() + "," + longitudeET.getText().toString() + "&sensor=false";
-	    	// creamos una petici—n de tipo GET (par‡metros en la URL)
-	    	HttpGet request = new HttpGet();
-			request.setURI(new URI(url));
-			// ejecutamos la petici—n
-			HttpResponse response = httpClient.execute(request);
-			
-			// convertimos la respuesta en string
-			String responseString = EntityUtils.toString(response.getEntity());
-			
-			// escribimos el resultado
-			resultET.setText(responseString);
-			
-			// cerramos la conexi—n 
-			httpClient.getConnectionManager().shutdown();
-    	}
-    	catch (Exception e) {
-    		e.printStackTrace();
-    	}
-    	
-    	// activamos todo
-    	latitudeET.setEnabled(true);
-    	longitudeET.setEnabled(true);
-    	requestButton.setEnabled(true);
-    	
-    	//RequestThread requestThread = new RequestThread(myHandler);
-    	//requestThread.run();
+    	RequestThread requestThread = new RequestThread(latitudeET.getText().toString(), 
+    			longitudeET.getText().toString(), myHandler);
+    	requestThread.run();
     }
     
     Handler myHandler = new Handler() {
     	
 		@Override
 		public void handleMessage(Message msg) {
-			
+			if (msg.what == 0) {
+				// response
+				resultET.setText((String)msg.getData().get(RequestActivity.__RESPONSE_KEY__));
+			}
+			if (msg.what == 1) {
+				resultET.setText(getString(R.string.error));
+			}
+			// activamos todo
+	    	latitudeET.setEnabled(true);
+	    	longitudeET.setEnabled(true);
+	    	requestButton.setEnabled(true);
 		}
     };
 }

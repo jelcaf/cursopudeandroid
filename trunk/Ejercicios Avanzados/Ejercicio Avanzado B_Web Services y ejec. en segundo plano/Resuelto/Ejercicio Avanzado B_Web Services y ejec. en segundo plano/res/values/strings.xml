@@ -8,5 +8,5 @@
     <string name="longitude">Longitud: </string>
     <string name="result">Resultado: </string>
     <string name="getAddress">Obtener Dirección</string>
-    <string name="inProgress">Operación en curso...</string>
+    <string name="error">Ocurrió un error durante la operación</string>
 </resources>
