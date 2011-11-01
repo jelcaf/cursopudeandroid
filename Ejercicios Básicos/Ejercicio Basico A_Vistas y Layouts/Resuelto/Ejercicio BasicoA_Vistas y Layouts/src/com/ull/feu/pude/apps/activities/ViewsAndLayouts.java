@@ -50,12 +50,22 @@ public class ViewsAndLayouts extends Activity {
 					myViewsLayout.setVisibility(View.VISIBLE);
 				}
 				else {
-					myViewsLayout.setVisibility(View.GONE);
+					//myViewsLayout.setVisibility(View.GONE);
+					
+					// Opcional
+					// Visible = 0, Invisible = 1, Gone = 2
+					/*
+					if (!toggleVisibility.isChecked()) {
+						myViewsLayout.setVisibility(View.GONE);
+					}
+					else
+						myViewsLayout.setVisibility(myViewsLayout.getVisibility() - 1);
+					*/
 				}
 			}
 		});
     	/*
-    	 * Con el RadioButton, lo que queremos es "escuchar" a cuando cambia de estado. Debido a sus 
+    	 * Con el RadioButton, lo que queremos es "escuchar" cada vez que cambia de estado. Debido a sus 
     	 * características, cuando un RadioButton es marcado, no puede volver a ser desmarcado, a menos 
     	 * que lo forcemos nosotros.
     	 */
