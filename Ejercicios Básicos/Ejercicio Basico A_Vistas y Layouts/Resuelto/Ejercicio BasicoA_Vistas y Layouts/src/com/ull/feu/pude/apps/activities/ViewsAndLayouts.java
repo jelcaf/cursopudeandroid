@@ -50,7 +50,7 @@ public class ViewsAndLayouts extends Activity {
 					myViewsLayout.setVisibility(View.VISIBLE);
 				}
 				else {
-					//myViewsLayout.setVisibility(View.GONE);
+					myViewsLayout.setVisibility(View.GONE);
 					
 					// Opcional
 					// Visible = 0, Invisible = 1, Gone = 2
