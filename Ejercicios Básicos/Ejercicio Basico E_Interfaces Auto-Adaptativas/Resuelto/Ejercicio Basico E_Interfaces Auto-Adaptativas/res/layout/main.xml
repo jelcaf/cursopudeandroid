@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 	<TextView
-    	android:layout_width="fill_parent" 
+    	android:layout_width="match_parent" 
     	android:layout_height="wrap_content" 
     	android:text="@string/hello">
     </TextView>
 	<EditText
-		android:layout_width="fill_parent"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:gravity="fill_horizontal"
 		android:minHeight="360dp"
 		android:maxHeight="360dp">
 	</EditText>
 	<Button
-		android:layout_width="fill_parent"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:text="Just a Button">
 	</Button>
