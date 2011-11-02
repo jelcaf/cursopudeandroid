@@ -12,7 +12,7 @@
   <TextView
   	android:id="@+id/rowTitle"
   	android:layout_height="wrap_content"
-  	android:layout_width="fill_parent"
+  	android:layout_width="match_parent"
   	android:layout_alignParentTop="true"
   	android:layout_toRightOf="@id/rowCheckBox"
   	android:textSize="16sp">
@@ -27,7 +27,7 @@
   <TextView
   	android:id="@+id/rowLowerCenterLeft"
   	android:layout_height="wrap_content"
-  	android:layout_width="fill_parent"
+  	android:layout_width="match_parent"
   	android:layout_below="@id/rowTitle"
   	android:layout_toRightOf="@id/rowLowerLeft">
   </TextView>
