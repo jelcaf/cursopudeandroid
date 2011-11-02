@@ -4,4 +4,5 @@
     <string name="app_name">GPS</string>
     <string name="toggle_gps_on">Toggle GPS_On</string>
     <string name="toggle_gps_off">Toggle GPS Off</string>
+    <string name="view_in_map">View in map</string>
 </resources>
