@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <TextView
     	android:id="@+id/screenCenter"
     	android:layout_width="wrap_content"
@@ -12,30 +12,30 @@
     </TextView>
 	<Spinner
 		android:id="@+id/sourceLanguage"
-		android:layout_width="fill_parent"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:prompt="@string/source"
 		android:layout_alignParentTop="true">
 	</Spinner>
 	<EditText
 		android:id="@+id/sourceText"
-		android:layout_width="fill_parent"
-		android:layout_height="fill_parent"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
 		android:gravity="fill_horizontal"
 		android:layout_below="@id/sourceLanguage"
 		android:layout_above="@id/screenCenter">
 	</EditText>
 	<Spinner
 		android:id="@+id/destinationLanguage"
-		android:layout_width="fill_parent"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:prompt="@string/destination"
 		android:layout_below="@id/sourceText">
 	</Spinner>
 	<EditText
 		android:id="@+id/destinationText"
-		android:layout_width="fill_parent"
-		android:layout_height="fill_parent"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
 		android:gravity="fill_horizontal"
 		android:layout_below="@id/destinationLanguage">
 	</EditText>
