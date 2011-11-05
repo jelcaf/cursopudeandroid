@@ -28,12 +28,12 @@ public final class R {
     public static final class string {
         public static final int app_name=0x7f040001;
         public static final int defaultLatitude=0x7f040003;
-        public static final int defaultLongitude=0x7f040004;
+        public static final int defaultLongitude=0x7f040005;
         public static final int error=0x7f040008;
         public static final int getAddress=0x7f040007;
         public static final int hello=0x7f040000;
         public static final int latitude=0x7f040002;
-        public static final int longitude=0x7f040005;
+        public static final int longitude=0x7f040004;
         public static final int result=0x7f040006;
     }
 }
