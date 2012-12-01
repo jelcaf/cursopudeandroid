@@ -12,6 +12,16 @@ import android.widget.ToggleButton;
 
 import com.ull.feu.pude.apps.R;
 
+/**
+ * 
+ * Ejercicio cuyo objetivo es que los alumnos se sientan c—modos con los dos aspectos de programaci—n en Android: XML y Java, 
+ * al mismo tiempo que introducimos propiedades b‡sicas de los elementos de interfaz de usuario (Views y ViewGroups).
+ * 
+ * @author Dinesh Harjani (Twitter: @dinesharjani G+: +Dinesh Harjani E-mail:goldrunner18725@gmail.com)
+ * Hashtag: #droidissues
+ *
+ */
+
 public class ViewsAndLayouts extends Activity {
 	
 	private CheckBox enableViews;
@@ -73,7 +83,7 @@ public class ViewsAndLayouts extends Activity {
     	myRadioButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				eventsTextView.setText("myRadioButton ha cambiado de estado.");				
+				eventsTextView.setText("myRadioButton ha cambiado de estado " + clickTimes + " veces.");				
 			}
 		});
     	*/
