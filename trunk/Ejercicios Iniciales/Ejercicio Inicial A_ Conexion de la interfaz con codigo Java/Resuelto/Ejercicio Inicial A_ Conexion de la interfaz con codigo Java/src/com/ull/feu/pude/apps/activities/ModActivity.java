@@ -16,7 +16,8 @@ import com.ull.feu.pude.apps.R;
  * Clase que recoge los datos de dos EditTexts, los convierte de Strings a enteros, calcula el módulo 
  * de A entre B, y lo devuelve en un TextView.
  * 
- * @author Dinesh Harjani (goldrunner192287@gmail.com)
+ * @author Dinesh Harjani (Twitter: @dinesharjani G+: +Dinesh Harjani E-mail:goldrunner18725@gmail.com)
+ * Hashtag: #droidissues
  *
  */
 
@@ -29,7 +30,7 @@ public class ModActivity extends Activity {
 	 * ¿Para qué lo usamos? Para escribir en el LogCat las acciones más importantes que vaya 
 	 * realizando nuestr actividad. 
 	 */
-	private static final String LOG_TAG = "ModActivity";
+	private static final String LOG_TAG = ModActivity.class.getSimpleName();
 	
 	/*
 	 * Variables (referencias)
@@ -56,10 +57,10 @@ public class ModActivity extends Activity {
     	// unimos las referencias a las vistas de nuestro layout
     	textViewA = (TextView) findViewById(R.id.tvA);
     	editTextA = (EditText) findViewById(R.id.etA);
+    	action = (Button) findViewById(R.id.btAction);
     	textViewB = (TextView) findViewById(R.id.tvB);
     	editTextB = (EditText) findViewById(R.id.etB);
     	result = (TextView) findViewById(R.id.tvResult);
-    	action = (Button) findViewById(R.id.btAction);
     	// ponemos etiquetas a textView A, textView B y a Result
     	textViewA.setText(getString(R.string.tituloA));
     	textViewB.setText(getString(R.string.tituloB));
