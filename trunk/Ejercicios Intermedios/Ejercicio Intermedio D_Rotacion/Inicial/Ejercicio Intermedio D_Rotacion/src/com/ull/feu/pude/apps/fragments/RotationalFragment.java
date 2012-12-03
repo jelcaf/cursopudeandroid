@@ -56,7 +56,7 @@ public class RotationalFragment extends Fragment {
     	destination = (Spinner) fragmentBody.findViewById(R.id.destinationLanguage);
     	destinationText = (EditText) fragmentBody.findViewById(R.id.destinationText);
     	x = "Inicializado.";
-    	Log.d(LOG_TAG, "Valor de x = " + x);
+    	Log.i(LOG_TAG, "Valor de x = " + x);
     	
     	// Array con las opciones de los Spinners
     	String[] languages = new String[] {"Español", "Inglés", "Francés", "Alemán"};
@@ -72,7 +72,7 @@ public class RotationalFragment extends Fragment {
 	    	public void afterTextChanged(Editable s) {
 	    		// despuÈs de que el texto cambie, asignamos x
 	    		x = s.toString();
-	    		Log.d(LOG_TAG, "Valor de x = " + x);
+	    		Log.i(LOG_TAG, "Valor de x = " + x);
 	      	}
 	       	public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 	       		// nada que hacer
