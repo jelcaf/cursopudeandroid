@@ -33,12 +33,12 @@ public class RotationalFragment extends Fragment {
 	private Spinner source;
 	private EditText sourceText;
 	private Spinner destination;
-	private EditText destinationText;
 	
 	private String x;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Log.i(LOG_TAG, "onCreate()");
 	}
 	
 	@Override
@@ -54,7 +54,6 @@ public class RotationalFragment extends Fragment {
     	source = (Spinner) fragmentBody.findViewById(R.id.sourceLanguage);
     	sourceText = (EditText) fragmentBody.findViewById(R.id.sourceText);
     	destination = (Spinner) fragmentBody.findViewById(R.id.destinationLanguage);
-    	destinationText = (EditText) fragmentBody.findViewById(R.id.destinationText);
     	x = "Inicializado.";
     	Log.i(LOG_TAG, "Valor de x = " + x);
     	
