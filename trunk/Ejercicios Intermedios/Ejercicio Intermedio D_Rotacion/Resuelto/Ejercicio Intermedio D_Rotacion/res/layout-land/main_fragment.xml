@@ -22,9 +22,9 @@
 		android:id="@+id/sourceText"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:gravity="fill_horizontal"
 		android:layout_below="@id/sourceLanguage"
-		android:layout_toLeftOf="@id/screenCenter">
+		android:layout_toLeftOf="@id/screenCenter"
+		android:gravity="fill_horizontal">
 	</EditText>
 	<Spinner
 		android:id="@+id/destinationLanguage"
