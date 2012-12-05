@@ -10,6 +10,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+/**
+ * Eejercicio BÂ‡sico A - ListViews Resuelto
+ * 
+ * @author jelcaf
+ * Hashtag: #droidissues
+ *
+ */
 public class Actividad extends ListActivity {
     /** Called when the activity is first created. */
     @Override
@@ -23,7 +30,7 @@ public class Actividad extends ListActivity {
         ListView l = getListView();
         l.setOnItemLongClickListener( new AdapterView.OnItemLongClickListener(){
         	public boolean onItemLongClick(AdapterView<?> l, View v, int position, long id) {
-        		Toast.makeText(getApplicationContext(), "Pulsación larga: "+position+" -> "+mArray[position], Toast.LENGTH_SHORT).show();
+        		Toast.makeText(getApplicationContext(), "PulsaciÃ³n larga: "+position+" -> "+mArray[position], Toast.LENGTH_SHORT).show();
                           
         		return true;
         	}
@@ -31,19 +38,19 @@ public class Actividad extends ListActivity {
         
         /*l.setOnItemClickListener( new AdapterView.OnItemClickListener(){
         	public void onItemClick(AdapterView<?> l, View v, int position, long id) {
-        		Toast.makeText(getApplicationContext(), "Pulsación corta: "+position+" -> "+mArray[position], Toast.LENGTH_SHORT).show();
+        		Toast.makeText(getApplicationContext(), "PulsaciÃ›n corta: "+position+" -> "+mArray[position], Toast.LENGTH_SHORT).show();
         	}
         });*/
     }
     
     /**
-     * Sobreescribimos el método que se encarga de detectar una pulsación sobre el item de la lista
+     * Sobreescribimos el mÃˆtodo que se encarga de detectar una pulsaciÃ›n sobre el item de la lista
      */
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
     	super.onListItemClick(l, v, position, id);
     	
-    	Toast.makeText(this, "Posicion: "+position+" -> "+mArray[position], Toast.LENGTH_LONG).show(); 
+    	Toast.makeText(this, "PosiciÃ³n: "+position+" -> "+mArray[position], Toast.LENGTH_LONG).show(); 
     }
     
     
