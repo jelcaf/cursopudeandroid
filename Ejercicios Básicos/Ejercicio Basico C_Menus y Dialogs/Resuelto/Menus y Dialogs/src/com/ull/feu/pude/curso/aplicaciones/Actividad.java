@@ -20,6 +20,13 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+/**
+ * Eejercicio BÂ‡Ã¡sico C - Menus y Dialogs - Resuelto
+ * 
+ * @author jelcaf
+ * Hashtag: #droidissues
+ *
+ */
 public class Actividad extends ListActivity {
 	
 	private static final int MENU_ADD_OR_DEL = Menu.FIRST;
@@ -54,7 +61,7 @@ public class Actividad extends ListActivity {
     }
     
     /**
-     * Sobreescribimos el método que se encarga de crear un nuevo Dialog
+     * Sobreescribimos el mÃˆtodo que se encarga de crear un nuevo Dialog
      */
     @Override
     protected Dialog onCreateDialog(int id) {
@@ -94,7 +101,7 @@ public class Actividad extends ListActivity {
     	SubMenu sub = menu.addSubMenu (SubMenu.NONE, MENU_ADD_OR_DEL, SubMenu.NONE, "Opciones")
     		.setIcon(android.R.drawable.ic_menu_more);
     	
-    	sub.add(SubMenu.NONE, MENU_ADD, SubMenu.NONE, "Añadir elemento");
+    	sub.add(SubMenu.NONE, MENU_ADD, SubMenu.NONE, "AÃ±adir elemento");
     	sub.add(SubMenu.NONE, MENU_DEL, SubMenu.NONE, "Eliminar elemento");
     	
     	return true;
@@ -106,7 +113,7 @@ public class Actividad extends ListActivity {
     		case MENU_ADD:
     			Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
     			showDialog(DIALOGO_NUEVO_DATO);
-    			/** Hacer notar en que momento se ejecuta éste código
+    			/** Hacer notar en que momento se ejecuta Ãˆste cÃ›digo
     			Toast.makeText(this, "debemos actualizar", Toast.LENGTH_SHORT).show();
     			actualizarArray();
     			*/
