@@ -11,6 +11,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+/**
+ * Eejercicio Básico C - Menus y Dialogs
+ * 
+ * @author jelcaf
+ * Hashtag: #droidissues
+ *
+ */
 public class Actividad extends ListActivity {
 	
 	ArrayList<String> mArray = new ArrayList<String>(); 
