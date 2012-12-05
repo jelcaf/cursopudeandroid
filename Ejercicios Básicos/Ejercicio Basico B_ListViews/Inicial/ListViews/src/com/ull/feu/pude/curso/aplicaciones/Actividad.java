@@ -5,6 +5,14 @@ import android.app.ListActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 
+/**
+ * Eejercicio B‡sico A - ListViews
+ * 
+ * @author jelcaf
+ * Hashtag: #droidissues
+ *
+ */
+
 public class Actividad extends ListActivity {
     /** Called when the activity is first created. */
     @Override
