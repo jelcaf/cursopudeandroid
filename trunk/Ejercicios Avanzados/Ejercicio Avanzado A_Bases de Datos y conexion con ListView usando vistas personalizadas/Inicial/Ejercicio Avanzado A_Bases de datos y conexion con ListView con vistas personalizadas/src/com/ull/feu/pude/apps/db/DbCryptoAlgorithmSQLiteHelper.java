@@ -12,10 +12,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 /**
- * Ésta es la clase que tiene acceso directo a la tabla con la información sobre los algoritmos criptográficos.
- * Aquí están los métodos que permiten crear la tabla, actualizarla y borrarla.
+ * Esta es la clase que tiene acceso directo a la tabla con la informaci—n sobre los algoritmos criptogr‡ficos.
+ * Aqu’ est‡n los mŽtodos que permiten crear la tabla, actualizarla y borrarla.
  * 
- * @author Dinesh Harjani (goldrunner192287@gmail.com)
+ * @author Dinesh Harjani (Twitter: @dinesharjani G+: +Dinesh Harjani E-mail:goldrunner18725@gmail.com)
+ * Hashtag: #droidissues
  *
  */
 public class DbCryptoAlgorithmSQLiteHelper extends SQLiteOpenHelper {
@@ -31,11 +32,66 @@ public class DbCryptoAlgorithmSQLiteHelper extends SQLiteOpenHelper {
 	}
 
 	/**
-	 * Este método se ejecuta una sola vez, cuando se va a crear la tabla.
-	 * @param db Base de datos en la que se creará la tabla
+	 * Este mŽtodo se ejecuta una sola vez, cuando se va a crear la tabla.
+	 * 
+	 * Cuando se van a realizar varias operaciones seguidas y queremos que funcionen como una sola (mantener las normas ACID 
+	 * de una base de datos relacional) es conveniente utilizar la estructura try / finally que sigue a continuaci—n. Lo que ocurre 
+	 * es que todas las acciones que se lleven a cabo entre un beginTransaction() y un endTransaction() funcionan como una sola, y
+	 * si algo falla entre ellas se vuelve al estado anterior. Por eso resulta conveniente utilizarlas aqu’.
+	 * 
+	 * @param db Base de datos en la que se crear‡ e incializar‡ la estructura de BD
 	 */
 	@Override
 	public void onCreate(SQLiteDatabase db) {
+		db.beginTransaction();
+		try {
+			crearTablasBD(db);
+			inicializarBD(db);
+			db.setTransactionSuccessful();
+		}
+		finally {
+			db.endTransaction();
+		}
+	}
+
+	/**
+	 * TambiŽn se ejecuta una vez, cuando se detecta que hay una nueva versi—n. Aqu’ debe estar el c—digo 
+	 * que actualice de la versi—n anterior del esquema/tabla a la nueva. El c—digo que aqu’ se muestra no es 
+	 * NADA recomendable para aplicaciones comerciales, salvo que sea la primera versi—n o se sepa que no 
+	 * va a haber cambios (improbable). De nuevo, encapsulamos todas las operaciones de la BD en una sola transacci—n, 
+	 * y esta vez a–adimos un bloque catch para escribir en el log que tuvimos un fallo catastr—fico al actualizar.
+	 * 
+	 * @param db Base de datos a actualizar.
+	 * @param versionAntigua Versi—n del esquema o instancia de la base de datos que se va a actualizar
+	 * @param versionNueva Versi—n m‡s reciente del esquema de la base de datos, a la que se va a actualizar
+	 */
+	@Override
+	public void onUpgrade(SQLiteDatabase db, int versionAntigua, int versionNueva) {
+		Log.w(LOG_TAG, "Actualizando la base de datos. Destruyendo datos antiguos.");
+		db.beginTransaction();
+		try {
+			db.execSQL("DROP TABLE IF EXISTS " + DbCryptoAlgorithmSQLiteHelper.NOMBRE_TABLA_BD);
+			crearTablasBD(db);
+			inicializarBD(db);
+			db.setTransactionSuccessful();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			Log.e(LOG_TAG, "Se ha producido un error catastr—fico al actualizar de la versi—n " + versionAntigua + "" +
+					" a la versi—n " + versionNueva);
+		}
+		finally {
+			db.endTransaction();
+		}
+	}
+	
+	/**
+	 * ƒste es un peque–o mŽtodo que nos hemos creado para poder separar el c—digo que construye nuestras tablas en la base
+	 * de datos.
+	 * 
+	 * @param db la BD donde queremos construir nuestra estructura de tablas
+	 */
+	private void crearTablasBD(SQLiteDatabase db) {
 		db.execSQL("CREATE TABLE " + DbCryptoAlgorithmSQLiteHelper.NOMBRE_TABLA_BD + " (" + 
 				DbCryptoAlgorithm.__CRYPTOALGORITHMDB_LLAVE_ID__ + " INTEGER PRIMARY KEY AUTOINCREMENT, " + 
 				DbCryptoAlgorithm.__CRYPTOALGORITHMDB_LLAVE_NOMBRE__ + " TEXT, " +
@@ -43,34 +99,17 @@ public class DbCryptoAlgorithmSQLiteHelper extends SQLiteOpenHelper {
 				DbCryptoAlgorithm.__CRYPTOALGORITHMDB_LLAVE_TIPOCIF__ + " INTEGER, " +
 				DbCryptoAlgorithm.__CRYPTOALGORITHMDB_LLAVE_SEGURO__ + " INTEGER, " +
 				DbCryptoAlgorithm.__CRYPTOALGORITHNDB_LLAVE_LONGMIN__ + " INTEGER);");
-		construirBD(db);
-	}
-
-	/**
-	 * También se ejecuta una vez, cuando se detecta que hay una nueva versión. Aquí debe estar el código 
-	 * que actualice la versión anterior del esquema/tabla a la nueva. El código que está aquí no es 
-	 * NADA recomendable para aplicaciones comerciales, salvo que sea la primera versión o se sepa que no 
-	 * va a haber cambios (improbable).
-	 * @param db Base de datos a actualizar.
-	 * @param versionAntigua Versión del esquema o instancia de la base de datos que se va a actualizar
-	 * @param versionNueva Versión más reciente del esquema de la base de datos, a la que se va a actualizar
-	 */
-	@Override
-	public void onUpgrade(SQLiteDatabase db, int versionAntigua, int versionNueva) {
-		Log.w(LOG_TAG, "Actualizando la base de datos. Destruyendo datos antiguos.");
-		db.execSQL("DROP TABLE IF EXISTS " + DbCryptoAlgorithmSQLiteHelper.NOMBRE_TABLA_BD);
-		onCreate(db);
 	}
 	
 	/**
 	 * Se encarga de llenar de algoritmos la tabla inicial.
-	 * @param db Base de datos en la que se añadirán las filas
+	 * @param db Base de datos en la que se insertar‡n las filas por defecto
 	 */
-	private void construirBD(SQLiteDatabase db) {
+	private void inicializarBD(SQLiteDatabase db) {
 		DbCryptoAlgorithm dbCA;
-		// Cifrado de César
+		// Cifrado de CŽsar
 		dbCA = new DbCryptoAlgorithm();
-		dbCA.setNombre("Cifrado de Cesar");
+		dbCA.setNombre("Cifrado de CŽsar");
 		dbCA.setTipoCifrado(TipoDeCifrado.Flujo);
 		dbCA.setTipoSimetria(TipoDeSimetria.Simetrico);
 		dbCA.setSeguro(false);
@@ -120,15 +159,23 @@ public class DbCryptoAlgorithmSQLiteHelper extends SQLiteOpenHelper {
 		dbCA = new DbCryptoAlgorithm();
 		dbCA.setNombre("Blowfish");
 		dbCA.setTipoCifrado(TipoDeCifrado.Bloque);
-		dbCA.setTipoSimetria(TipoDeSimetria.Asimetrico);
+		dbCA.setTipoSimetria(TipoDeSimetria.Simetrico);
 		dbCA.setSeguro(true);
 		dbCA.setLongitudMinimaClave(128);
+		dbCA.save(db);
+		// Cifrado Twofish
+		dbCA = new DbCryptoAlgorithm();
+		dbCA.setNombre("Twofish");
+		dbCA.setTipoCifrado(TipoDeCifrado.Bloque);
+		dbCA.setTipoSimetria(TipoDeSimetria.Simetrico);
+		dbCA.setSeguro(true);
+		dbCA.setLongitudMinimaClave(256);
 		dbCA.save(db);
 		// Cifrado AES
 		dbCA = new DbCryptoAlgorithm();
 		dbCA.setNombre("AES");
 		dbCA.setTipoCifrado(TipoDeCifrado.Bloque);
-		dbCA.setTipoSimetria(TipoDeSimetria.Asimetrico);
+		dbCA.setTipoSimetria(TipoDeSimetria.Simetrico);
 		dbCA.setSeguro(true);
 		dbCA.setLongitudMinimaClave(128);
 		dbCA.save(db);
