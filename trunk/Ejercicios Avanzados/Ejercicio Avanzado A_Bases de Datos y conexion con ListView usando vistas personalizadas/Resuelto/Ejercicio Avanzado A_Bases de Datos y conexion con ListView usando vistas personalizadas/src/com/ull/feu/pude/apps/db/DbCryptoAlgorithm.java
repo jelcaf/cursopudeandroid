@@ -11,16 +11,17 @@ import android.util.Log;
 
 /**
  * 
- * Clase que representa en forma de objeto Java la información que se guarda en cada fila de la base de datos.
+ * Clase que representa en forma de objeto Java la informaci—n que se guarda en cada fila de la base de datos.
  * 
- * @author Dinesh Harjani (goldrunner192287@gmail.com)
+ * @author Dinesh Harjani (Twitter: @dinesharjani G+: +Dinesh Harjani E-mail:goldrunner18725@gmail.com)
+ * Hashtag: #droidissues
  *
  */
 public class DbCryptoAlgorithm {
 
 	/*
 	 * Llaves de la base de datos
-	 * Son los nombres con los que se identificará cada variable en la base de datos
+	 * Son los nombres con los que se identificar‡ cada variable en las columnas de la base de datos
 	 * 
 	 */
 	
@@ -32,7 +33,7 @@ public class DbCryptoAlgorithm {
 	public static final String __CRYPTOALGORITHNDB_LLAVE_LONGMIN__ = "minKeyLength";
 	
 	/*
-	 * Declaración de variables y tipos auxiliares
+	 * Declaraci—n de variables y tipos auxiliares
 	 * (Los inicializamos)
 	 */
 	
@@ -54,11 +55,13 @@ public class DbCryptoAlgorithm {
 	private int longitudMinimaClave = -1;
 	
 	/*
-	 * Métodos
+	 * MŽtodos
 	 */
 	
 	/**
-	 * Método que, dada la base de datos, devuelve un cursor con todas las filas.
+	 * MŽtodo que, dada la base de datos, devuelve un cursor con todas las filas.
+	 * NOTA: El cursor que se devuelve permanece abierto
+	 * 
 	 * @param db Base de datos donde se encuentran las filas a recuperar
 	 * @return Cursor con todas las filas de la tabla {@code DbCryptoAlgorithmSQLiteHelper.NOMBRE_TABLA_BD}
 	 */
@@ -68,31 +71,37 @@ public class DbCryptoAlgorithm {
 	}
 	
 	/**
-	 * Método que transforma una fila de la base de datos en un objeto Java de tipo DbCryptoAlgorithm.
+	 * MŽtodo que transforma una fila de la base de datos en un objeto Java de tipo {@link DbCryptoAlgorithm}.
+	 * 
 	 * @param db La instancia de la base de datos donde se encuentra la fila
 	 * @param id El id de la fila a transformar
-	 * @return Objeto de tipo DbCryptoAlgorithm, o null si no se encuentra la fila
+	 * @return un objeto de tipo {@link DbCryptoAlgorithm}, o null si no se encuentra la fila
 	 */
 	public static DbCryptoAlgorithm loadFrom(SQLiteDatabase db, long id) {		
 		Cursor c = db.rawQuery("SELECT * FROM " + DbCryptoAlgorithmSQLiteHelper.NOMBRE_TABLA_BD + 
 				" WHERE " + DbCryptoAlgorithm.__CRYPTOALGORITHMDB_LLAVE_ID__ + " = " + id, null);
 		
+		// inicializamos a null
+		DbCryptoAlgorithm dbCA = null;
 		c.moveToFirst();
 		// si hay un elemento en el cursor, entonces lo hemos encontrado
-		if (c.isFirst()) {
-			DbCryptoAlgorithm dbCA = new DbCryptoAlgorithm();
+		if ((c.isFirst() && (c.getCount() == 1))) {
+			dbCA = new DbCryptoAlgorithm();
 			dbCA.loadFrom(c);
-			return dbCA;
 		}
-		else
-			return null;
+		
+		// ÁÁmuy importante cerrar el cursor!!
+		c.close();
+		
+		return dbCA;
 	}
 
 	/**
-	 * Método que se encarga de recoger los datos de la fila apuntada por el cursor y asignárselos a 
+	 * MŽtodo encargado de recoger los datos de la fila apuntada por el cursor y asign‡rselos a 
 	 * los campos de esta instancia.
+	 * 
 	 * @param c Cursor apuntando a la fila que se quiere se representada
-	 * @return Objeto representado, el mismo al que se invocó la llamada
+	 * @return Objeto representado, siendo el mismo al que se invoc— la llamada pero actualizado
 	 */
 	public DbCryptoAlgorithm loadFrom(Cursor c) {
 		id = c.getLong(c.getColumnIndex(__CRYPTOALGORITHMDB_LLAVE_ID__));
@@ -162,11 +171,12 @@ public class DbCryptoAlgorithm {
 	}
 	
 	/**
-	 * Método que se encarga de transformar los datos guardados por el objeto en una fila de 
+	 * MŽtodo que se encarga de transformar los datos guardados por el objeto en una fila de 
 	 * la base de datos. Si este objeto ya existe en la base de datos, debe ser actualizado, y si no,
-	 * debe ser creado en la misma.
+	 * debe ser insertado en la misma.
+	 * 
 	 * @param db Instancia de la base de datos donde se guardará el objeto
-	 * @return Código de resultado de la operación
+	 * @return el nœmero de filas afectadas por la operaci—n (0 -> error, 1 -> Žxito, m‡s de 1 -> se actualiz— m‡s de una fila)
 	 */
 	public long save(SQLiteDatabase db) {
 		ContentValues cv = new ContentValues();
