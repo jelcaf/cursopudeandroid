@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true">
+    <!-- Obtención de datos -->
+    <TextView
+    	android:id="@+id/latitudeTV"
+    	android:layout_alignParentTop="true"
+    	android:layout_height="wrap_content"
+    	android:layout_width="match_parent"
+    	android:gravity="center_horizontal"
+    	android:text="@string/latitude">
+    </TextView>
+    <EditText
+    	android:id="@+id/latitudeET"
+    	android:layout_below="@id/latitudeTV"
+    	android:layout_height="wrap_content"
+    	android:layout_width="match_parent"
+    	android:inputType="number|numberSigned|numberDecimal"
+    	android:text="@string/defaultLatitude">
+    </EditText>
+    <TextView
+    	android:id="@+id/longitudeTV"
+    	android:layout_below="@id/latitudeET"
+    	android:layout_height="wrap_content"
+    	android:layout_width="match_parent"
+    	android:gravity="center_horizontal"
+    	android:text="@string/longitude">
+    </TextView>
+    <EditText
+    	android:id="@+id/longitudeET"
+    	android:layout_below="@id/longitudeTV"
+    	android:layout_height="wrap_content"
+    	android:layout_width="match_parent"
+    	android:inputType="number|numberSigned|numberDecimal"
+    	android:text="@string/defaultLongitude">
+    </EditText>
+    <!-- Botón de petición -->
+    <Button
+    	android:id="@+id/requestButton"
+    	android:layout_alignParentBottom="true"
+    	android:layout_height="wrap_content"
+    	android:layout_width="match_parent"
+    	android:text="@string/getAddress">
+    </Button>
+	<!-- Visualización del resultado -->
+	<TextView
+    	android:id="@+id/resultTV"
+    	android:layout_below="@id/longitudeET"
+    	android:layout_height="wrap_content"
+    	android:layout_width="match_parent"
+    	android:text="@string/result">
+    </TextView>
+	<EditText
+	    android:id="@+id/resultET"
+	    android:layout_below="@id/resultTV"
+    	android:layout_above="@id/requestButton"
+	    android:layout_height="match_parent"
+	    android:layout_width="match_parent"
+	    android:scrollbars="vertical"
+	    android:gravity="left|fill_horizontal"
+	    android:inputType="textMultiLine"
+	    android:enabled="false">
+   	</EditText>
+</RelativeLayout>

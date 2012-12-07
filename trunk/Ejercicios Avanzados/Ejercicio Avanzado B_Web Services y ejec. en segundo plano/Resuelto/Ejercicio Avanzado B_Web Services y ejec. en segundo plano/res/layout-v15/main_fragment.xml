@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true">
     <!-- Obtención de datos -->
     <TextView
     	android:id="@+id/latitudeTV"
@@ -17,6 +18,7 @@
     	android:layout_below="@id/latitudeTV"
     	android:layout_height="wrap_content"
     	android:layout_width="match_parent"
+    	android:inputType="number|numberSigned|numberDecimal"
     	android:text="@string/defaultLatitude">
     </EditText>
     <TextView
@@ -32,6 +34,7 @@
     	android:layout_below="@id/longitudeTV"
     	android:layout_height="wrap_content"
     	android:layout_width="match_parent"
+    	android:inputType="number|numberSigned|numberDecimal"
     	android:text="@string/defaultLongitude">
     </EditText>
     <!-- Botón de petición -->
@@ -42,7 +45,8 @@
     	android:layout_width="match_parent"
     	android:text="@string/getAddress">
     </Button>
-	<!-- ScrollView para ver el resultado -->
+    <!-- Visualización del resultado; tenemos que utilizar un ScrollView porque tras ICS 4.0.3 (API v15)
+    	los EditTexts deshabilitados ya no hacen scroll -->
 	<TextView
     	android:id="@+id/resultTV"
     	android:layout_below="@id/longitudeET"
@@ -50,15 +54,19 @@
     	android:layout_width="match_parent"
     	android:text="@string/result">
     </TextView>
-	<EditText
-	    android:id="@+id/resultET"
-	    android:layout_below="@id/resultTV"
+    <ScrollView
+        android:layout_below="@id/resultTV"
     	android:layout_above="@id/requestButton"
-	    android:layout_height="match_parent"
 	    android:layout_width="match_parent"
-	    android:scrollbars="vertical"
-	    android:gravity="left|fill_horizontal"
-	    android:inputType="textMultiLine"
-	    android:enabled="false">
-   	</EditText>
+	    android:layout_height="match_parent">
+        <EditText
+		    android:id="@+id/resultET"
+		    android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+		    android:gravity="left|fill_horizontal"
+		    android:inputType="textMultiLine"
+		    android:enabled="false">
+   		</EditText>
+    </ScrollView>
+	
 </RelativeLayout>
