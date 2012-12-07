@@ -14,7 +14,8 @@ public final class R {
         public static final int icon=0x7f020000;
     }
     public static final class id {
-        public static final int myList=0x7f050004;
+        public static final int listView_fragment=0x7f050004;
+        public static final int myList=0x7f050005;
         public static final int rowCheckBox=0x7f050000;
         public static final int rowLowerCenterLeft=0x7f050003;
         public static final int rowLowerLeft=0x7f050002;
@@ -22,7 +23,8 @@ public final class R {
     }
     public static final class layout {
         public static final int list_item=0x7f030000;
-        public static final int main=0x7f030001;
+        public static final int main_activity=0x7f030001;
+        public static final int main_fragment=0x7f030002;
     }
     public static final class string {
         public static final int app_name=0x7f040001;
