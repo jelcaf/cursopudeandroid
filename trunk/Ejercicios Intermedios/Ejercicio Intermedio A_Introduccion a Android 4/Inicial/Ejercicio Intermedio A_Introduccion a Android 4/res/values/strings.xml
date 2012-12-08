@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Fragment Me</string>
+    <string name="menu_nuevo">Nueva versión</string>
+
+    <string-array name="versionesDeAndroid"> 
+	    <item>Android 1.0 (API v1)</item>
+        <item>Android 1.1 (API v2)</item>
+        <item>Cupcake 1.5 (API v3)</item>
+        <item>Donut 1.6 (API v4)</item>
+        <item>Éclair 2.0 (API v5)</item>
+        <item>Éclair 2.0.1 (API v6)</item>
+        <item>Éclair 2.1 (API v7)</item>
+        <item>Froyo 2.2 (API v8)</item>
+        <item>Gingerbread 2.3 (API v9)</item>
+        <item>Gingerbread 2.3.3 (API v10)</item>
+        <item>Honeycomb 3.0 (API v11)</item>
+        <item>Honeycomb 3.1 (API v12)</item>
+        <item>Honeycomb 3.2 (API v13)</item>
+        <item>Ice Cream Sandwich 4.0 (API v14)</item>
+        <item>Ice Cream Sandwich 4.0.3 (API v15)</item>
+        <item>Jelly Bean 4.1 (API v16)</item>
+        <item>Jelly Bean 4.2 (API v17)</item>
+    </string-array>
+    
+    <string name="dialogo_titulo">Nueva versión</string>
+    <string name="dialogo_texto">Introduzca aquí el nombre completo de la nueva versión de Android:</string>
+    <string name="dialogo_aceptar">Aceptar</string>
+    
+</resources>
