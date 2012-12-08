@@ -1,0 +1,6 @@
+<resources>
+    <!-- Tema holográfico para Android v4  -->
+    <style 
+        name="AppBaseTheme" parent="android:Theme.Holo">
+    </style>
+</resources>
