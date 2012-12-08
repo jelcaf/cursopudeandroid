@@ -15,6 +15,14 @@ import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 
+/**
+ * Ejercicio B‡sico D - Menus contextuales
+ * 
+ * @author Jorge Carballo (Twitter: @jelcaf G+: +Jorge Carballo E-mail:jelcaf@gmail.com)
+ * @author Dinesh Harjani (Twitter: @dinesharjani G+: +Dinesh Harjani E-mail:goldrunner18725@gmail.com)
+ * Hashtag: #droidissues
+ *
+ */
 public class Actividad extends ListActivity {
 	
 	private static final int DIALOGO_NUEVO_DATO = 1;
