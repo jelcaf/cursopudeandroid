@@ -7,6 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+/**
+ * 
+ * @author Jorge Carballo (Twitter: @jelcaf G+: +Jorge Carballo E-mail:jelcaf@gmail.com)
+ * @author Dinesh Harjani (Twitter: @dinesharjani G+: +Dinesh Harjani E-mail:goldrunner18725@gmail.com)
+ * Hashtag: #droidissues
+ *
+ */
 public class Actividad1 extends Activity {
 	private static final int SUB_ACTIVIDAD = 0;
 	
