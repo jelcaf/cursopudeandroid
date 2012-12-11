@@ -10,6 +10,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+/**
+ * @author Jorge Carballo (Twitter: @jelcaf G+: +Jorge Carballo E-mail:jelcaf@gmail.com)
+ * @author Dinesh Harjani (Twitter: @dinesharjani G+: +Dinesh Harjani E-mail:goldrunner18725@gmail.com)
+ * Hashtag: #droidissues
+ *
+ */
 public class Actividad extends Activity {
     private static final int MENU_PREFERENCIAS = 0;
 
